@@ -8,7 +8,16 @@ export const GlobalStyle = createGlobalStyle`
 
   body,
   html {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     margin: 0;
+  }
+
+  div#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%
   }
 
   body {

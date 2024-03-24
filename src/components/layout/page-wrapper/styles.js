@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const StyledPageWrapper = styled.main`
-    width: 1400px;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
-    min-height: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    padding-bottom: 80px;
+    flex-direction: column; 
 `

@@ -20,7 +20,8 @@ export const SideBar = styled.nav`
     position: fixed;
     top: 0;
     left: ${(props) => props.$sidebar ? `-100%` : `0%`};
-    transition: 850ms
+    transition: 850ms;
+    z-index: 100;
 `
 
 export const SideBarTop = styled.div`

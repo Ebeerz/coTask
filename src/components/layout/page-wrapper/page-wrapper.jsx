@@ -1,3 +1,4 @@
+import MainPage from "../../pages/main-page/main-page";
 import Header from "../header/header";
 import { StyledPageWrapper } from "./styles";
 
@@ -7,7 +8,7 @@ function PageWrapper (){
     <>
       <Header />
       <StyledPageWrapper>
-        {/* main content */}
+        <MainPage/>
       </StyledPageWrapper>
     </>
   );
