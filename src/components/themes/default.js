@@ -3,6 +3,7 @@ export const defaultTheme = {
     fontColorGrey: "#54595E",
     colorWhite: "#ffffff",
     headerColor: '#BDD3FF',
+    errorColor: '#DC3545',
     mainBackgroundColor: '#E9ECEF',
     activeTabColor: '#DEE2E6',
     unactiveTabColor: '#CED4DA',

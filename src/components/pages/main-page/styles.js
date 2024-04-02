@@ -8,6 +8,7 @@ export const ProjectHeader = styled.p`
     margin: 0;
     display: flex;
     justify-content: space-between;
+    background-color: #F8F9FA;
 `
 
 export const ProjectName = styled.span`

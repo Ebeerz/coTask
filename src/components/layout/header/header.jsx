@@ -1,18 +1,21 @@
-import { StyledHeader, StyledAvatar} from "./styles"
+import { useContext } from "react";
+import { Avatar } from "../../blocks/avatar/avatar";
+import { StyledHeader} from "./styles"
 import { StyledLogo } from "../../blocks/logo/logo";
 import Nav from "../nav/nav";
-
+import { UserContext } from "../../../context/user-context";
 
 function Header() {
+  const [token] = useContext(UserContext);
   return (
     <StyledHeader>
-      <Nav></Nav>
+      {token && <Nav></Nav>}
         <StyledLogo href="/">
-            <img alt="logo" src="../../../../public/assets/logo.png"/>
+            <img alt="logo" src="/assets/logo.png"/>
         </StyledLogo>
-        <StyledAvatar $marginLeft="auto" $marginRight="67px">
-          <img alt="avatar" src="../../../../public/assets/avatar-template.svg"/>
-        </StyledAvatar>
+        {token && <Avatar $marginLeft="auto">
+          <img alt="avatar" src="/assets/avatar-template.svg"/>
+        </Avatar>}
     </StyledHeader>
   )
 }

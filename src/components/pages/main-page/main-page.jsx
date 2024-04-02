@@ -1,6 +1,6 @@
 import Tabs from "../../blocks/tab/tabs";
 import { Deadline, MainSection, ProjectHeader, ProjectName } from "./styles";
-function MainPage (){
+function MainPage (props){
   return (
     <>
       <ProjectHeader>
@@ -9,7 +9,7 @@ function MainPage (){
       </ProjectHeader>
 
       <MainSection>
-        <Tabs/>
+        <Tabs {...props}/>
       </MainSection>
     </>
   );

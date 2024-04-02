@@ -15,19 +15,3 @@ export const StyledHeader = styled.header`
     align-items: center;
     box-sizing: border-box;
 `
-
-export const StyledAvatar = styled(Avatar)`
-    position:relative;
-    &:after {
-        content: "";
-        transform: rotate(90deg);
-        display: block;
-        width: 24px;
-        height: 24px;
-        position: absolute;
-        background-image: url('../../../../public/assets/arrow.svg');
-        background-repeat: no-repeat;
-        left: 40px;
-        top: 15px;
-    }
-`

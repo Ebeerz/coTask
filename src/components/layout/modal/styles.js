@@ -11,19 +11,17 @@ export const StyledModal = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    opacity: ${(props) => props.active ? `0` : `1`};
+    opacity: ${(props) => props.$modalActive ? `1` : `0`};
+    pointer-events: ${(props) => props.$modalActive ? `all` : `none`};
+    transition: 0.4s all;
 `
 
 export const ModalContent = styled.div`
-    padding: 40px;
     background-color: ${(props) => props.theme.colorWhite};
-    min-height: 500px;
-    min-width: 550px;
     border-radius: 16px;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 30px;
 `
 
 export const ModalButton = styled.button`

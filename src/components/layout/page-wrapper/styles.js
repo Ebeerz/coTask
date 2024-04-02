@@ -7,4 +7,5 @@ export const StyledPageWrapper = styled.main`
     height: 100%;
     display: flex;
     flex-direction: column; 
+    background-color: ${(props) => props.theme.mainBackgroundColor};
 `

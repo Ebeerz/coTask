@@ -1,14 +1,16 @@
-import MainPage from "../../pages/main-page/main-page";
-import Header from "../header/header";
+import { useContext } from "react";
+import { UserContext } from "../../../context/user-context";
 import { StyledPageWrapper } from "./styles";
+import MainPage from "../../pages/main-page/main-page";
+import LoginPage from "../../pages/login-page/login-page";
 
-// Обёртка для контента страниц
-function PageWrapper (){
+
+function PageWrapper (props){
+  const [token] = useContext(UserContext);
   return (
     <>
-      <Header />
       <StyledPageWrapper>
-        <MainPage/>
+        {!token ? <LoginPage/> : <MainPage {...props}/>}
       </StyledPageWrapper>
     </>
   );

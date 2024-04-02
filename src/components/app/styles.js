@@ -1,9 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 import involveRegular from '../../../public/assets/fonts/Involve-Regular.otf'
+import involveSemiBold from '../../../public/assets/fonts/Involve-SemiBold.otf'
+import involveBold from '../../../public/assets/fonts/Involve-Bold.otf'
 
 export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
   }
 
   body,
@@ -32,7 +39,11 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Involve';
-    src: url(${involveRegular}) format('opentype'),
+    src:
+     url(${involveRegular}) format('opentype'),
+     url(${involveSemiBold}) format('opentype'),
+     url(${involveBold}) format('opentype'),
+     /* url(${involveRegular}) format('opentype'), */
     
   }
 
