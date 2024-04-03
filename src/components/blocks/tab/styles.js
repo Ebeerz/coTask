@@ -26,7 +26,7 @@ export const TabContent = styled.section`
     border-radius: 0px 16px 16px 16px; 
     padding: 15px;
     min-width: 600px;
-    min-height: 555px;
+
     font-family: ${(props) => props.theme.fontFamily};
     font-size: ${(props) => props.theme.fontSizeDefault};
 `

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Avatar } from "../../blocks/avatar/avatar";
 
 export const StyledHeader = styled.header`
     display: flex;

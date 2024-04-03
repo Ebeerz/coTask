@@ -1,16 +1,13 @@
-import { useContext } from "react";
-import { UserContext } from "../../../context/user-context";
+import Header from "../header/header";
 import { StyledPageWrapper } from "./styles";
-import MainPage from "../../pages/main-page/main-page";
-import LoginPage from "../../pages/login-page/login-page";
+import { Outlet } from "react-router-dom";
 
-
-function PageWrapper (props){
-  const [token] = useContext(UserContext);
+function PageWrapper (){
   return (
     <>
+      <Header/>
       <StyledPageWrapper>
-        {!token ? <LoginPage/> : <MainPage {...props}/>}
+        <Outlet/>
       </StyledPageWrapper>
     </>
   );

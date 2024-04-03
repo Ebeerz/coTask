@@ -1,6 +1,6 @@
 import Dashboard from "../dashboard/dashboard";
 import Roadmap from "../roadmap/roadmap";
-import { TabButton, TabContent, TabButtonContainer } from "./styles";
+import { TabButton, TabButtonContainer, TabContent } from "./styles";
 import { useState } from "react";
 function Tabs (props){
   const [activeTab, setActiveTab] = useState(1);

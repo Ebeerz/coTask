@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/user-context";
 import { Agreement, AgreementLink, Form, InputLabel, Role, RoleContainer, RoleInput, SubmitButton, TextInput, Title, AccountInfo, AccountInfoButton } from "./styles";
 
@@ -11,22 +11,28 @@ const Register = ({setTab}) => {
   const [team, setTeam] = useState("");
   const [position, setPosition] = useState("");
   const [, setToken] = useContext(UserContext);
-
+  const navigate = useNavigate();
+  
+  const fakeTeam = 'СемьяSample44NN0D';
   const submitRegistration = async () => {
+    console.log(JSON.stringify({ email: email, hashed_password: password,
+      fullname: fullname, team: fakeTeam, position: position }));
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: email, hashed_password: password,
-         fullname: fullname, team: team, position: position }),
+         fullname: fullname, team: fakeTeam, position: position }),
     };
 
     const response = await fetch("http://dggz.me:8000/api/users", requestOptions);
     const data = await response.json();
+    console.log(data.access_token);
 
     if (!response.ok) {
       console.log(data.detail);
     } else {
       setToken(data.access_token);
+      navigate('/');
     }
   };
 

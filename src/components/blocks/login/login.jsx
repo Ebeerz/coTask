@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/user-context";
 import { Form, Title, TextInput, InputLabel, SubmitButton, AccountInfo, AccountInfoButton, ValidationError } from "../registration/styles";
 
@@ -8,6 +8,8 @@ const Login = ({setTab}) => {
   const [password, setPassword] = useState("");
   const [, setToken] = useContext(UserContext);
   const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     return String(email)
@@ -33,6 +35,7 @@ const Login = ({setTab}) => {
       setError(true);
     } else {
       setToken(data.access_token);
+      navigate('/');
     }
   };
 

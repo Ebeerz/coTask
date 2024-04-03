@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-import involveRegular from '../../../public/assets/fonts/Involve-Regular.otf'
-import involveSemiBold from '../../../public/assets/fonts/Involve-SemiBold.otf'
-import involveBold from '../../../public/assets/fonts/Involve-Bold.otf'
+import involveRegular from '/assets/fonts/Involve-Regular.otf'
+import involveSemiBold from '/assets/fonts/Involve-SemiBold.otf'
+import involveBold from '/assets/fonts/Involve-Bold.otf'
 
 export const GlobalStyle = createGlobalStyle`
   html {
