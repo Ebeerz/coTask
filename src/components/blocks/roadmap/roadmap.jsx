@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react"
-import { Task, TaskTime, Tree, MapModalHeading, MapModalTitle, MapModalProgress} from "./styles"
+import { Task, TaskTime, Tree } from "./styles"
 import { UserContext } from "../../../context/user-context";
+import RoadmapModal from "../roadmap-modal/roadmap-modal";
 
 function Roadmap({setModalActive, setModalContent}) {
     const [error, setError] = useState(false);
@@ -35,23 +36,9 @@ function Roadmap({setModalActive, setModalContent}) {
 
     useEffect(()=>{
         fetchTasks()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    function ModalContent(task) {
-        return (
-        <>
-            <MapModalHeading>{task.name}</MapModalHeading>
-            <MapModalTitle>Прогресс: 0%</MapModalTitle>
-            <MapModalProgress></MapModalProgress>
-            <MapModalTitle>Трудоемкость: {task.duration}</MapModalTitle>
-            <MapModalTitle>Дата начала: {task.start_date}</MapModalTitle>
-            <MapModalTitle>Дата завершения: {task.end_date}</MapModalTitle>
-            <MapModalTitle>Зависит от: {task.parents.map(parent => tasks[parent-1].name+" ")}</MapModalTitle>
-            <MapModalTitle>Уровень риска: {task.risk_level} </MapModalTitle>
-            <MapModalTitle>Роль: {task.role} </MapModalTitle>
-        </>
-        )
-    }
 
     if (error) {
         return <div>Ошибка: {JSON.stringify(error)}</div>;
@@ -65,7 +52,7 @@ function Roadmap({setModalActive, setModalContent}) {
                     <Task 
                         $risk={task.risk_level} key={task.id} 
                         onClick={() => {
-                            setModalActive(true); setModalContent(ModalContent(task))
+                            setModalActive(true); setModalContent(<RoadmapModal task={task} />)
                         }}
                     >
                         {task.name}

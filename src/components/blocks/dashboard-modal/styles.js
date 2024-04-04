@@ -1,7 +1,5 @@
 import styled from "styled-components"
 export const ModalContainer = styled.div`
-    min-height: 643px;
-    min-width: 624px;
     padding: 36px 42px 36px 42px;
     box-sizing: border-box;
     display: flex;
@@ -48,6 +46,9 @@ export const DateInput = styled.input`
     color: ${(props) => props.theme.fontColorBlack};
     border: none;
     border-radius: 8px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export const WorkDataContainer = styled.div`
@@ -88,8 +89,9 @@ export const ProgressBar = styled.input`
         width:16px;
         height: 16px;
         border-radius: 50%; 
-        background: #ffffff;
+        background: ${(props) => props.theme.unactiveTabColor};
         cursor: pointer;
+
     }
     &::-moz-range-thumb {
         width: 16px;
@@ -98,13 +100,14 @@ export const ProgressBar = styled.input`
         border: none;
         background: ${(props) => props.theme.unactiveTabColor};
         cursor: pointer;
+
     }
 `
 
 export const ProgressValue = styled.span`
     position: absolute;
-    right: -8px;
-    top: 25px;
+    right: -1px;
+    top: 32px;
 `
 
 export const DescriptionContainer = styled.div`

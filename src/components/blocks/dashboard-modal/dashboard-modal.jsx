@@ -1,7 +1,7 @@
 import { ModalContainer, ModalSubheading, PropertyHeading, ModalHeading, DateContainer, WorkDataContainer, PropertyContainer, DateInput, WorkHours, ProgressContainer, ProgressBar, ProgressValue, DescriptionContainer, DescriptionInput, DependencyContainer, DependencyList, DependencyItem} from "./styles";
 import { useState } from "react";
 
-function ModalContent ({task, name}) {
+function DashboardModal ({task, name}) {
     const [progress, setProgress] = useState(0);
     return (
         <ModalContainer>
@@ -53,4 +53,4 @@ function ModalContent ({task, name}) {
     )
 }
 
-export default ModalContent
+export default DashboardModal

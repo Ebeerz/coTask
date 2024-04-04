@@ -47,26 +47,3 @@ export const Tree = styled.div`
     height: 100%;
     gap: 30px;
 `
-
-export const MapModalHeading = styled.h3`
-    font-size: 24px;
-    font-weight: 600;
-    font-family: ${(props) => props.theme.fontFamily};
-    margin: 0;
-    padding: 0;
-`
-
-export const MapModalTitle = styled.span`
-    font-size: 14px;
-    font-weight: 400;
-    font-family: ${(props) => props.theme.fontFamily};
-    color: ${(props) => props.theme.fontColorGrey};
-`
-
-export const MapModalProgress = styled.span`
-    
-`
-
-export const MapModalTeam = styled.span`
-
-`

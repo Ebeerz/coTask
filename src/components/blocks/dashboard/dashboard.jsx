@@ -51,6 +51,7 @@ function Dashboard(props) {
 
     useEffect(()=>{
         fetchTasks()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (error) {
