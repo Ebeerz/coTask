@@ -1,16 +1,25 @@
-import { useContext } from "react";
-import { UserContext } from "../../../context/user-context";
-import { useNavigate } from "react-router-dom";
+import Profile from "../../blocks/profile/profile";
+import MyTasks from "../../blocks/my-tasks/my-tasks";
+import Tabs from "../../blocks/tabs/tabs";
+import { MainSection } from "../main-page/styles";
 
-function ProfilePage (){
-  const [, setToken] = useContext(UserContext);
-  const navigate = useNavigate();
-  const Logout = () => {setToken(null); navigate('/login')}
+function ProfilePage () {
+  const tabs = [
+    { id: 1,
+      name: 'Профиль',
+      content: <Profile/>,
+    },
+    { id: 2,
+      name: 'Мои задачи',
+      content: <MyTasks/>,
+    }
+  ]
+
+
   return (
-    <>
-      Profile
-      <button onClick={Logout}>Logout</button>
-    </>
+    <MainSection>
+      <Tabs tabs={tabs}/>
+    </MainSection>
   );
 }
 

@@ -24,8 +24,6 @@ function Dashboard(props) {
                 "Content-Type": "application/json",
             },
         };
-        // setLoading(true);
-        // const response = await 
         fetch("http://dggz.me:8000/api/data/tasks", requestOptions)
         .then(response => response.json())
         .then(

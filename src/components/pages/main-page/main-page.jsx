@@ -1,4 +1,4 @@
-import Tabs from "../../blocks/tab/tabs";
+import Tabs from "../../blocks/tabs/tabs";
 import Roadmap from "../../blocks/roadmap/roadmap";
 import Dashboard from "../../blocks/dashboard/dashboard";
 import { Deadline, MainSection, ProjectHeader, ProjectName } from "./styles";

@@ -62,7 +62,7 @@ const Register = ({setTab}) => {
         <InputLabel>E-mail</InputLabel>
         <TextInput onChange={(e) => setEmail(e.target.value)} type='email' placeholder="Введите e-mail"/>
         <InputLabel>Пароль</InputLabel>
-        <TextInput onChange={(e) => setPassword(e.target.value)} type='password' placeholder="Придумайте пароль"/>
+        <TextInput onChange={(e) => setPassword(e.target.value)} type='password' placeholder="Придумайте пароль (не менее 5 символов)"/>
         <InputLabel>Подтверждение пароля</InputLabel>
         <TextInput onChange={(e) => setConfirmationPassword(e.target.value)} type='password' placeholder="Повторите пароль"/>
         <InputLabel>Роль</InputLabel>
