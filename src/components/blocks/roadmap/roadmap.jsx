@@ -56,7 +56,8 @@ function Roadmap({setModalActive, setModalContent}) {
                         }}
                     >
                         {task.name}
-                        <TaskTime> C {task.start_date} до {task.end_date}</TaskTime>
+                        
+                        <TaskTime> {task.start_date.split('T')[0]} - {task.end_date.split('T')[0]}</TaskTime>
                     </Task>)}
                 </Tree>   
             </>

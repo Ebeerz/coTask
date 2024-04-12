@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../../context/user-context";
 import { useNavigate } from "react-router-dom";
-import { ProfileContainer, Form, Line, InputLabel, SideSection, TextInput, Role, RoleContainer, RoleInput, SubmitButton, LogoutButton } from "./styles";
+import { InfoUpdateStatus, ProfileContainer, Form, Line, InputLabel, SideSection, TextInput, Role, RoleContainer, RoleInput, SubmitButton, LogoutButton, FormContainer } from "./styles";
 function Profile (){
     
     const [token, setToken] = useContext(UserContext);
@@ -12,9 +12,13 @@ function Profile (){
     const [position, setPosition] = useState("");
     const [error, setError] = useState(false);
     const [loaded, setLoaded] = useState(false);
+    const [infoUpdateStatus, setInfoUpdateStatus] = useState("");
+    const fakeTeam = 'СемьяSample44NN0D';
     const navigate = useNavigate();
 
-    function fetchTasks () {
+
+    // get user info for inputs
+    function fetchUserInfo () {
       const requestOptions = {
           method: "GET",
           headers: {
@@ -28,7 +32,6 @@ function Profile (){
       .then(response => response.json())
       .then(
         (user) => {
-          console.log(user);
           setFullname(user.fullname);
           setEmail(user.email);
           setTeam(user.team);
@@ -44,8 +47,36 @@ function Profile (){
       )
     }
 
+    // put new user info
+    const updateUserInfo = async () => {
+      const requestOptions = {
+        method: "PUT",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, hashed_password: password,
+           fullname: fullname, team: fakeTeam, position: position }),
+      };
+  
+      const response = await fetch("http://dggz.me:8000/api/users/me", requestOptions);
+      const data = await response.json();
+  
+      if (!response.ok) {
+        setInfoUpdateStatus(data.detail);
+      } else {
+        setInfoUpdateStatus('Данные успешно обновлены!');
+      }
+    };
+
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      updateUserInfo()
+    };
+
     useEffect(()=>{
-        fetchTasks()
+        fetchUserInfo()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -71,7 +102,8 @@ function Profile (){
   } else {
       return (
           <ProfileContainer>
-            <Form>
+            <Form onSubmit={handleSubmit}>
+              <FormContainer>
                 <SideSection>
                     <InputLabel>ФИО</InputLabel>
                     <TextInput onChange={(e) => setFullname(e.target.value)} type='text' value={fullname} placeholder="Введите ФИО"/>
@@ -102,11 +134,11 @@ function Profile (){
                     <InputLabel>Должность</InputLabel>
                     <TextInput type='text' onChange={(e) => setPosition(e.target.value)} value={position} placeholder='Введите вашу должность'/>
                 </SideSection>
-            {/* Profile
-            <button onClick={Logout}>Logout</button> */}
+              </FormContainer>
+              <SubmitButton type="submit" value="Сохранить изменения" disabled={validateForm() ? false : true}/>
             </Form>
-            <SubmitButton type="submit" value="Сохранить изменения" disabled={validateForm() ? false : true}/>
             <LogoutButton onClick={logout}>Выйти из аккаунта</LogoutButton>
+            {infoUpdateStatus && <InfoUpdateStatus>{infoUpdateStatus}</InfoUpdateStatus>}
           </ProfileContainer>
       )
   }

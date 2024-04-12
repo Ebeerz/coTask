@@ -24,7 +24,7 @@ function Dashboard(props) {
                 "Content-Type": "application/json",
             },
         };
-        fetch("http://dggz.me:8000/api/data/tasks", requestOptions)
+        fetch("http://dggz.me:8000/api/team/tasks", requestOptions)
         .then(response => response.json())
         .then(
             (result) => {

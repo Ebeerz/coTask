@@ -7,10 +7,14 @@ export const ProfileContainer = styled.div`
 `
 export const Form = styled.form`
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+export const FormContainer = styled.div`
+    display: flex;
     justify-content: space-between;
     margin-bottom: 54px;
 `
-
 export const Line = styled.div`
     border-right: 1px solid #ABB5BE;
 `
@@ -82,6 +86,12 @@ export const SubmitButton = styled.input`
         color: #54595E;
         cursor: auto;
     }
+`
+
+export const InfoUpdateStatus = styled.span`
+    display: block;
+    margin: 0 auto;
+    font-size: 12px;
 `
 
 export const LogoutButton = styled.button`

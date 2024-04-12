@@ -15,8 +15,6 @@ const Register = ({setTab}) => {
   
   const fakeTeam = 'СемьяSample44NN0D';
   const submitRegistration = async () => {
-    console.log(JSON.stringify({ email: email, hashed_password: password,
-      fullname: fullname, team: fakeTeam, position: position }));
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
