@@ -20,7 +20,7 @@ function App() {
       <GlobalStyle/>
         {/* {!token ? <LoginPage/> : <MainPage setModalActive={setModalActive} setModalContent={setModalContent}/>} */}
       <Routes>
-        <Route path='/' element={<PageWrapper></PageWrapper>}>
+        <Route path='/coTask' element={<PageWrapper></PageWrapper>}>
           <Route index element={
             <ProtectedRoute>
               <MainPage setModalActive={setModalActive} setModalContent={setModalContent}/>
