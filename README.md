@@ -14,7 +14,7 @@ The project is still under development and not all the planned features have bee
 **1 -** Clone the project and install the dependencies:
 
 ```sh
-$ git clone https://github.com/afonsopacifer/react-pomodoro.git
+$ git clone https://github.com/Ebeerz/coTask.git
 $ cd coTask
 $ npm install
 ```
